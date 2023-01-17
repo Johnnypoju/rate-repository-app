@@ -15,20 +15,18 @@ const styles = StyleSheet.create({
     colorPrimary: {
         color: theme.colors.primary
     },
+    colorBanner: {
+        color: theme.colors.white
+    },
     fontSizeSubHeading: {
         fontSize: theme.fontSizes.subheading
     },
     fontWeightBold: {
         fontWeight: theme.fontWeights.bold
     },
-    backgroundColorAppBar: {
-        backgroundColor: theme.backgroundColor.backgroundAppBar,
-        color: theme.colors.appBar,
-        backgroundOpacity: theme.backgroundOpacity.backgroundAppBar,
-        backGroundRadius: theme.backgroundRadius.backgroundAppBar,
-        paddingTop: theme.padding.backgroundTop,
-        paddingBottom: theme.padding.backgroundBottom
-
+    padding: {
+        paddingBottom: theme.padding.backgroundBottom,
+        paddingTop: theme.padding.paddingTop
     },
     backGroundColorLanguages: {
         backgroundColor: theme.colors.primary,
@@ -50,14 +48,15 @@ const styles = StyleSheet.create({
 
 });
 
-const Text = ({ color, fontSize, fontWeight, style, backgroundColor, type, ...props}) => {
+const Text = ({ color, fontSize, fontWeight, style, backgroundColor, type, padding, ...props}) => {
     const textStyle = [
         styles.text,
         color === 'textSecondary' && styles.colorTextSecondary,
         color === 'primary' && styles.colorPrimary,
+        color === 'white' && styles.colorBanner,
+        padding === 'padding' && styles.padding,
         fontSize === 'subHeading' && styles.fontSizeSubHeading,
         fontWeight === 'bold' && styles.fontWeightBold,
-        backgroundColor === 'appBar' && styles.backgroundColorAppBar,
         backgroundColor === 'languages' && styles.backGroundColorLanguages,
         type === 'stats' && styles.stats,
         type === 'description' && styles.statDescription,
