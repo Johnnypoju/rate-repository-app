@@ -15,6 +15,7 @@ const StatsForm = ({props}) => {
             },
         }
     )
+    
     // rounding values 
     const stargazersCount = ValueModifier(props.stargazersCount);
     const forks = ValueModifier(props.forksCount);
