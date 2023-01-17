@@ -1,18 +1,11 @@
 import { View, StyleSheet, Image} from "react-native";
 import theme from "../theme";
 import Text from "./Text";
-import ValueModifier from "./ValueModifier";
+import StatsForm from "./StatsForm";
 
 const RepositoryItem = ({ props }) => {
 
     const styles = StyleSheet.create({
-        container_rows: {
-            display: 'flex',
-            flexDirection: 'column',
-            padding: 10,
-            flexGrow: 1,
-            flexShrink: 1
-        },
         container_columns: {
             display: 'flex',
             flexDirection: 'row',
@@ -38,10 +31,7 @@ const RepositoryItem = ({ props }) => {
         
     })
     const uri = props.ownerAvatarUrl;
-    //console.log(props.stargazersCount);
-    const stargazersCount = ValueModifier(props.stargazersCount);
-    const forks = ValueModifier(props.forksCount);
-    const reviews = ValueModifier(props.reviewCount);
+    
 
     return (
         <View >
@@ -55,22 +45,7 @@ const RepositoryItem = ({ props }) => {
             </View>
             
             <View style={styles.container_columns}>
-                <View style={styles.container_rows}>
-                    <Text type={'stats'}>{stargazersCount} </Text>
-                    <Text type={'description'}>Stars</Text> 
-                </View>
-                <View style={styles.container_rows}>
-                    <Text type={'stats'}>{forks} </Text>
-                    <Text type={'description'}>Forks</Text>
-                </View>
-                <View style={styles.container_rows}>
-                    <Text type={'stats'}>{reviews} </Text>
-                    <Text type={'description'}>Reviews</Text>
-                </View>
-                <View style={styles.container_rows}>
-                    <Text type={'stats'}>{props.ratingAverage} </Text>
-                    <Text type={'description'}>Rating</Text>
-                </View>
+                <StatsForm props={props} />
                 
             </View>
             
