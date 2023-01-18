@@ -8,22 +8,22 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: Constants.statusBarHeight,
         display: 'flex',
+        flexGrow: 0,
         backgroundColor: theme.backgroundColor.backgroundAppBar
-    },
-    flexItems: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly'
-
     }
 })
 
 const AppBar = () => {
     return (
         <View style={styles.container} >
-            <View style={styles.flexItems} backgroundColor={'appBar'}>
+            <ScrollView horizontal={true} backgroundColor={'appBar'}>
                 <AppBarTap link={"/"} text={"Repositories"}/>
-                <AppBarTap link={"/sigin"} text={"Sign in"}/>
-            </View>
+                <AppBarTap link={"/signin"} text={"Sign in"}/>
+                <AppBarTap link={"/"} text={"just testing"}/>
+                <AppBarTap link={"/"} text={"testing still"}/>
+                <AppBarTap link={"/"} text={"aand out"}/>
+                <AppBarTap link={"/"} text={"final one"}/>
+            </ScrollView>
         </View>
     );
 };

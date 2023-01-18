@@ -25,8 +25,9 @@ const styles = StyleSheet.create({
         fontWeight: theme.fontWeights.bold
     },
     padding: {
-        paddingBottom: theme.padding.backgroundBottom,
-        paddingTop: theme.padding.paddingTop
+        /*paddingBottom: theme.padding.backgroundBottom,
+        paddingTop: theme.padding.paddingTop*/
+        padding: theme.padding.padding
     },
     backGroundColorLanguages: {
         backgroundColor: theme.colors.primary,

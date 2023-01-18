@@ -31,6 +31,7 @@ const theme = {
     padding: {
         backgroundTop: 40,
         backgroundBottom: 20,
+        padding: 20,
         languageBar: 3
     },
     borderRadius: {
