@@ -6,8 +6,7 @@ const styles = StyleSheet.create({
     text: {
         color: theme.colors.textPrimary,
         fontSize: theme.fontSizes.body,
-        fontfamily: theme.fonts.main,
-        fontWeight: theme.fontWeights.normal
+        fontFamily: theme.fonts,
     },
     colorTextSecondary: {
         color: theme.colors.textSecondary
