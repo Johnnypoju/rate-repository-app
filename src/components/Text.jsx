@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         paddingTop: theme.padding.paddingTop*/
         padding: theme.padding.padding
     },
-    backGroundColorLanguages: {
+    roundedBlue: {
         backgroundColor: theme.colors.primary,
         color: theme.colors.white,
         backgroundRadius: theme.colors.backgroundRadius,
@@ -37,6 +37,15 @@ const styles = StyleSheet.create({
         padding: theme.padding.languageBar,
         borderRadius: theme.borderRadius.languageBar
 
+    },
+    signIn: {
+        alignSelf: 'stretch',
+        textAlign: 'center',
+        backgroundColor: theme.colors.primary,
+        color: theme.colors.white,
+        backgroundRadius: theme.colors.backgroundRadius,
+        padding: theme.padding.signIn,
+        borderRadius: theme.borderRadius.languageBar,
     },
     stats: {
         textAlign: 'center',
@@ -49,7 +58,7 @@ const styles = StyleSheet.create({
 
 });
 
-const Text = ({ color, fontSize, fontWeight, style, backgroundColor, type, padding, ...props}) => {
+const Text = ({ color, fontSize, fontWeight, style, backgroundColor, type, padding,  ...props}) => {
     const textStyle = [
         styles.text,
         color === 'textSecondary' && styles.colorTextSecondary,
@@ -58,9 +67,10 @@ const Text = ({ color, fontSize, fontWeight, style, backgroundColor, type, paddi
         padding === 'padding' && styles.padding,
         fontSize === 'subHeading' && styles.fontSizeSubHeading,
         fontWeight === 'bold' && styles.fontWeightBold,
-        backgroundColor === 'languages' && styles.backGroundColorLanguages,
+        backgroundColor === 'roundedBlue' && styles.roundedBlue,
         type === 'stats' && styles.stats,
         type === 'description' && styles.statDescription,
+        type === 'signIn' && styles.signIn,
         style
     ];
 

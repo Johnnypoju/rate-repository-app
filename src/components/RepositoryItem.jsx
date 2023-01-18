@@ -40,7 +40,7 @@ const RepositoryItem = ({ props }) => {
                 <View style={styles.paddedLeft}>
                     <Text fontWeight={'bold'}>{props.fullName}</Text>
                     <Text color={'textSecondary'}>{props.description}</Text>
-                    <Text backgroundColor={'languages'}>{props.language} </Text>
+                    <Text backgroundColor={'roundedBlue'}>{props.language} </Text>
                 </View>
             </View>
             
