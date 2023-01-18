@@ -19,10 +19,6 @@ const AppBar = () => {
             <ScrollView horizontal={true} backgroundColor={'appBar'}>
                 <AppBarTap link={"/"} text={"Repositories"}/>
                 <AppBarTap link={"/signin"} text={"Sign in"}/>
-                <AppBarTap link={"/"} text={"just testing"}/>
-                <AppBarTap link={"/"} text={"testing still"}/>
-                <AppBarTap link={"/"} text={"aand out"}/>
-                <AppBarTap link={"/"} text={"final one"}/>
             </ScrollView>
         </View>
     );
