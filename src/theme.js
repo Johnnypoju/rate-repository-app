@@ -6,7 +6,7 @@ const theme = {
       appBar: '#FFFFFF',
       main: '#e1e4e8',
       white: 'white',
-      red: 'red'
+      error: '#d73a4a'
     },
     fontSizes: {
       body: 14,
@@ -33,7 +33,10 @@ const theme = {
         backgroundBottom: 20,
         padding: 20,
         languageBar: 3,
-        signIn: 10
+        signIn: 10,
+    },
+    paddingLeft: {
+        error: 10
     },
     borderRadius: {
         languageBar: 7

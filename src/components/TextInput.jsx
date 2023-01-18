@@ -4,20 +4,26 @@ import theme from '../theme';
 const styles = StyleSheet.create({
     input: {
         height: 40,
-        margin: 12,
+        marginLeft: 12,
+        marginRight: 12,
+        marginTop: 12,
         borderWidth: 1,
-        padding: 10,
+        padding: theme.padding.signIn,
         backgroundColor: theme.colors.white
     },
     secureText: {
         secureTextEntry: true
+    },
+    error: {
+        borderColor: theme.colors.error
     }
 });
 
-const TextInput = ({ style, errors, ...props }) => {
+const TextInput = ({ style, error, ...props }) => {
   const textInputStyle = [
         styles.input,
         style === 'secureText' && styles.secureText,
+        error !== undefined && styles.error,
         style
 
     ];
