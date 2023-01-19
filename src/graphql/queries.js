@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-//import { REPOSITORIES } from './fragments';
+
 
 export const GET_REPOSITORIES = gql`
     query {
@@ -20,9 +20,22 @@ export const GET_REPOSITORIES = gql`
                     stargazersCount
                     url
                     userHasReviewed
-                    watchersCount 
+                    watchersCount    
                 }
             }
+        }
+    }
+    
+`;
+
+export const GET_USERS = gql`
+    query {
+        users {
+           edges {
+            node {
+                username
+            }
+           } 
         }
     }
 `;
