@@ -28,6 +28,15 @@ export const GET_REPOSITORIES = gql`
     
 `;
 
+export const GET_AUTHENTICATED_USER = gql`
+    query {
+        me {
+            id
+            username
+        }
+    }
+`;
+
 export const GET_USERS = gql`
     query {
         users {
