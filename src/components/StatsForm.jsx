@@ -24,19 +24,19 @@ const StatsForm = ({props}) => {
     return (
         <>
             <View style={styles.container_rows}>
-                <Text type={'stats'}>{stargazersCount} </Text>
+                <Text testID={'stargazers'} type={'stats'}>{stargazersCount} </Text>
                 <Text type={'description'}>Stars</Text> 
             </View>
             <View style={styles.container_rows}>
-                <Text type={'stats'}>{forks} </Text>
+                <Text testID={'forks'} type={'stats'}>{forks} </Text>
                 <Text type={'description'}>Forks</Text>
             </View>
             <View style={styles.container_rows}>
-                <Text type={'stats'}>{reviews} </Text>
+                <Text testID={'reviews'}t ype={'stats'}>{reviews} </Text>
                 <Text type={'description'}>Reviews</Text>
             </View>
             <View style={styles.container_rows}>
-                <Text type={'stats'}>{props.ratingAverage} </Text>
+                <Text testID={'rating'} type={'stats'}>{props.ratingAverage} </Text>
                 <Text type={'description'}>Rating</Text>
             </View>
         </>

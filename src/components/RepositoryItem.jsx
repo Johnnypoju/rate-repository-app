@@ -34,13 +34,13 @@ const RepositoryItem = ({ props }) => {
     
 
     return (
-        <View >
+        <View testID="repositoryItem">
             <View style={styles.container_columns}>
                 <Image style={styles.image} source={{uri: uri}}/>
                 <View style={styles.paddedLeft}>
-                    <Text fontWeight={'bold'}>{props.fullName}</Text>
-                    <Text color={'textSecondary'}>{props.description}</Text>
-                    <Text backgroundColor={'roundedBlue'}>{props.language} </Text>
+                    <Text fontWeight={'bold'} testID="fullName">{props.fullName}</Text>
+                    <Text color={'textSecondary'} testID="description">{props.description}</Text>
+                    <Text backgroundColor={'roundedBlue'} testID="language">{props.language} </Text>
                 </View>
             </View>
             
