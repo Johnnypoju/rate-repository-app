@@ -1,14 +1,25 @@
 import { View, StyleSheet, Image} from "react-native";
-import theme from "../theme";
-import Text from "./Text";
+import theme from "../../theme";
+import Text from "../Text";
 import StatsForm from "./StatsForm";
+import * as Linking from 'expo-linking';
+import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
-const RepositoryItem = ({ props }) => {
+const RepositoryItem = ({ props, single }) => {
 
+    
     const styles = StyleSheet.create({
-        container_columns: {
+        container_rows: {
             display: 'flex',
             flexDirection: 'row',
+            backgroundColor: theme.colors.white,
+            flexGrow: 1,
+            flexShrink: 1,
+            padding: 5
+        },
+        container_columns: {
+            display: 'flex',
+            flexDirection: 'column',
             backgroundColor: theme.colors.white,
             flexGrow: 1,
             flexShrink: 1,
@@ -35,7 +46,7 @@ const RepositoryItem = ({ props }) => {
 
     return (
         <View testID="repositoryItem">
-            <View style={styles.container_columns}>
+            <View style={styles.container_rows}>
                 <Image style={styles.image} source={{uri: uri}}/>
                 <View style={styles.paddedLeft}>
                     <Text fontWeight={'bold'} testID="fullName">{props.fullName}</Text>
@@ -43,11 +54,19 @@ const RepositoryItem = ({ props }) => {
                     <Text backgroundColor={'roundedBlue'} testID="language">{props.language} </Text>
                 </View>
             </View>
-            
             <View style={styles.container_columns}>
-                <StatsForm props={props} />
-                
+                <View style={styles.container_rows}>
+                    <StatsForm props={props} />
+                    
+                </View>
+                {single ?
+                    <Pressable onPress={() => Linking.openURL(props.url)}>
+                        <Text type={'button'}>Open in Github</Text>
+                    </Pressable>                   
+                    : null}
+                    
             </View>
+            
             
         </View >
     )

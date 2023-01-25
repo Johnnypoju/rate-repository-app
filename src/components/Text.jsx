@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
         color: theme.colors.textPrimary,
         fontSize: theme.fontSizes.body,
         fontFamily: theme.fonts,
+        flexShrink: 1
     },
     colorTextSecondary: {
         color: theme.colors.textSecondary
@@ -34,10 +35,18 @@ const styles = StyleSheet.create({
         backgroundRadius: theme.colors.backgroundRadius,
         alignSelf: 'flex-start',
         padding: theme.padding.languageBar,
-        borderRadius: theme.borderRadius.languageBar
+        borderRadius: theme.borderRadius.languageBar,
 
     },
-    signIn: {
+    ratingText: {
+        width: 30, 
+        height: 30, 
+        textAlign: 'center', 
+        padding: 4,
+        color: theme.colors.primary,
+        fontWeight: theme.fontWeights.bold,
+    },
+    button: {
         alignSelf: 'stretch',
         textAlign: 'center',
         backgroundColor: theme.colors.primary,
@@ -69,7 +78,8 @@ const Text = ({ color, fontSize, fontWeight, style, backgroundColor, type, paddi
         backgroundColor === 'roundedBlue' && styles.roundedBlue,
         type === 'stats' && styles.stats,
         type === 'description' && styles.statDescription,
-        type === 'signIn' && styles.signIn,
+        type === 'button' && styles.button,
+        type === 'ratingText' && styles.ratingText,
         style
     ];
 

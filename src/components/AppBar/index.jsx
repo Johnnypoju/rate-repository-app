@@ -3,9 +3,9 @@ import { useApolloClient, useQuery } from '@apollo/client';
 
 import Constants from 'expo-constants';
 import AppBarTap from './AppBarTap';
-import theme from '../theme';
-import useAuthStorage from '../hooks/useAuthStorage';
-import { GET_AUTHENTICATED_USER } from '../graphql/queries';
+import theme from '../../theme';
+import useAuthStorage from '../../hooks/useAuthStorage';
+import { GET_AUTHENTICATED_USER } from '../../graphql/queries';
 
 
 
@@ -39,8 +39,17 @@ const AppBar = (/*{ loading, data }*/) => {
         <View style={styles.container} >
             <ScrollView horizontal={true} backgroundColor={'appBar'}>
                 <AppBarTap link={"/"} text={"Repositories"}/>
-                {data.me ? <AppBarTap link={"/"} text={"Sign out"} onPress={handleSignOut}/> 
-                : <AppBarTap link={"/signin"} text={"Sign in"}/> }
+                {data.me ? 
+                    <>
+                        <AppBarTap link={"/createReview"} text={"Create a review"} />
+                        <AppBarTap link={"/"} text={"Sign out"} onPress={handleSignOut}/> 
+                    </>
+                    : 
+                    <>
+                        <AppBarTap link={"/signin"} text={"Sign in"}/>
+                        <AppBarTap link={"/singup"} text={"Sign up"}/>
+                    </>
+                }
             </ScrollView>
         </View>
     );

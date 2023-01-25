@@ -1,14 +1,13 @@
 import { StyleSheet, View } from 'react-native';
 import { Route, Routes, Navigate } from 'react-router-native';
-/*import { useQuery } from '@apollo/client';
-import { useEffect, useState } from 'react';*/
-
 
 import AppBar from './AppBar';
-import RepositoryList from './RepositoryList';
+import RepositoryList from './RepositoryForms/RepositoryList';
 import theme from '../theme';
-import SignIn from './SignIn';
-//import { GET_AUTHENTICATED_USER } from '../graphql/queries';
+import SignIn from './Signin';
+import RepositorySingle from './RepositoryForms/RepositorySingle';
+import CreateReview from './CreateReview';
+import SignUp from './SignUp';
 
 
 
@@ -21,26 +20,17 @@ const styles = StyleSheet.create({
 });
 
 const Main = () => {
-    
-    /*const { loading, data } = useQuery(GET_AUTHENTICATED_USER);
-    const [ loggedIn, setLoggedIn ] = useState(false);
-
-    useEffect(() => { 
-        console.log(data);
-        console.log(loggedIn)}
-    ), [loggedIn];
-
-    if (loading) {
-        return null
-    }*/
-    
+        
 
     return (
         <View style={styles.container}>
-            <AppBar /*loading={loading} data={data}*//>
+            <AppBar />
             <Routes>
                 <Route path='/' element={<RepositoryList />} exact />
-                <Route path='/signin' element={<SignIn /*setLoggedIn={setLoggedIn} loggedIn={loggedIn}*//>} exact />
+                <Route path='/signin' element={<SignIn />} exact />
+                <Route path='/singup' element={<SignUp />} exact/>
+                <Route path='/:id' element={<RepositorySingle />} exact/>
+                <Route path='/createReview' element={<CreateReview />} exact/>
                 <Route path='*' element={<Navigate to='/' replace />} /> 
             </Routes>
         </View> 

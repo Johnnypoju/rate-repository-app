@@ -1,33 +1,28 @@
 import FormikTextInput from "./FormikTextInput";
 import { Formik } from "formik";
-import { View, StyleSheet, Pressable } from "react-native";
+import { View, Pressable } from "react-native";
 import { useNavigate } from 'react-router-native';
-import theme from "../theme";
-import Text from "./Text";
-import SingInValidationSchema from "../utils/SignInValidationSchema";
-import useSignIn from "../hooks/useSignIn";
+
+import { styles } from '../InputFormStyles';
+import Text from "../Text";
+import SingInValidationSchema from "../../utils/SignInValidationSchema";
+import useSignIn from "../../hooks/useSignIn";
+
 
 const initialValues = {
     username: "",
     password: ""
 };
 
-const styles = StyleSheet.create({
-    container_columns: {
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: theme.colors.white
-    }
-    
-})
+
 
 const SignInForm = ({ onSubmit }) => {
     return (
         <View style={styles.container_columns} >
             <FormikTextInput name={"username"}/>
-            <FormikTextInput name={"password"} style={'secureText'}/>
+            <FormikTextInput name={"password"}/>
             <Pressable onPress={onSubmit} style={{ padding: 10}}>
-                <Text type={'signIn'}>Sign in</Text>
+                <Text type={'button'}>Sign in</Text>
             </Pressable>
         </View>
     )
@@ -45,23 +40,25 @@ export const SignInContainer = ({ onSubmit }) => {
 }
 
 const SignIn = () => {
+    const [signIn] = useSignIn();
+    const navigate = useNavigate();
 
     const onSubmit = async (values) => {
         const { username, password } = values;
-        const [signIn] = useSignIn();
-        const navigate = useNavigate();
+        
 
         try {
             const { authenticate } = await signIn({ username, password});
-            console.log(authenticate.accessToken);
-            
+            if(authenticate){
+                console.log("User log in successful")
+            }
             navigate('/');
         } catch (error) {
             console.log(error);
         }
     };
 
-    return <SingInContainer onSubmit={onSubmit}/>
+    return <SignInContainer onSubmit={onSubmit}/>
 };
 
 export default SignIn;

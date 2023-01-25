@@ -1,6 +1,6 @@
-import ValueModifier from "./ValueModifier";
+import ValueModifier from "../../utils/ValueModifier";
 import { View, StyleSheet } from "react-native";
-import Text from "./Text";
+import Text from "../Text";
 
 const StatsForm = ({props}) => {
 
@@ -32,7 +32,7 @@ const StatsForm = ({props}) => {
                 <Text type={'description'}>Forks</Text>
             </View>
             <View style={styles.container_rows}>
-                <Text testID={'reviews'}t ype={'stats'}>{reviews} </Text>
+                <Text testID={'reviews'} type={'stats'}>{reviews} </Text>
                 <Text type={'description'}>Reviews</Text>
             </View>
             <View style={styles.container_rows}>

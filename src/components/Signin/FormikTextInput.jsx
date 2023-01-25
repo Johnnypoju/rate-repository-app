@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { useField } from 'formik';
 
-import TextInput from './TextInput';
-import Text from './Text';
-import theme from '../theme';
+import TextInput from '../TextInput';
+import Text from '../Text';
+import theme from '../../theme';
 
 
 const styles = StyleSheet.create({
@@ -29,6 +29,7 @@ const FormikTextInput = ({ name, ...props }) => {
   return (
     <>
       <TextInput
+        style={{borderRadius: 10}}
         onChangeText={value => helpers.setValue(value)}
         onBlur={() => helpers.setTouched(true)}
         value={field.value}
