@@ -9,7 +9,8 @@ const useRepositories = (sorting) => {
         fetchPolicy: 'cache-and-network',
         variables: {
           orderBy: sorting.orderBy,
-          orderDirection: sorting.orderDirection
+          orderDirection: sorting.orderDirection,
+          searchKeyword: sorting.searchKeyword
         }
         
       });

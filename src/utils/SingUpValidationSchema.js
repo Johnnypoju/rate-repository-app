@@ -9,8 +9,8 @@ const SingUpValidationSchema = () => {
             .required('Username is required!'),
         password: yup
             .string()
-            .min(1, 'Password must be at least 8 characters!')
-            .max(30, 'Password cannot be longer than 30 characters')
+            .min(8, 'Password must be at least 8 characters!')
+            .max(50, 'Password cannot be longer than 30 characters')
             .required('Password is required!'),
         passwordConfirmation: yup
             .string()

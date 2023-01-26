@@ -8,7 +8,8 @@ import { useState } from 'react';
 const initialState = {
   orderBy: "CREATED_AT",
   orderDirection: "DESC",
-  label: "latest"
+  label: "latest",
+  searchKeyword: ""
 }
 
 const RepositoryList = () => {
@@ -23,7 +24,7 @@ const RepositoryList = () => {
   }
 
   return (
-    <RepositoryListContainer repositories={repositories} navigate={navigate} sorting={sorting} setSorting={setSorting}/>
+    <RepositoryListContainer repositories={repositories} navigate={navigate} sorting={sorting} setSorting={setSorting} />
   );
 };
 
