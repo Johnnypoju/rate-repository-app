@@ -1,11 +1,11 @@
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { useApolloClient, useQuery } from '@apollo/client';
+import { useApolloClient } from '@apollo/client';
 
 import Constants from 'expo-constants';
 import AppBarTap from './AppBarTap';
 import theme from '../../theme';
 import useAuthStorage from '../../hooks/useAuthStorage';
-import { GET_AUTHENTICATED_USER } from '../../graphql/queries';
+import useMe from '../../hooks/useMe';
 
 
 
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 
 
 const AppBar = (/*{ loading, data }*/) => {
-    const { loading, data } = useQuery(GET_AUTHENTICATED_USER);
+    const { me, loading } = useMe();
 
     const authStorage = useAuthStorage();
     const apolloClient = useApolloClient();
@@ -39,9 +39,10 @@ const AppBar = (/*{ loading, data }*/) => {
         <View style={styles.container} >
             <ScrollView horizontal={true} backgroundColor={'appBar'}>
                 <AppBarTap link={"/"} text={"Repositories"}/>
-                {data.me ? 
+                {me ? 
                     <>
                         <AppBarTap link={"/createReview"} text={"Create a review"} />
+                        <AppBarTap link={"/:id/myReviews"} text={"My reviews"} />
                         <AppBarTap link={"/"} text={"Sign out"} onPress={handleSignOut}/> 
                     </>
                     : 

@@ -8,6 +8,7 @@ import SignIn from './Signin';
 import RepositorySingle from './RepositoryForms/RepositorySingle';
 import CreateReview from './CreateReview';
 import SignUp from './SignUp';
+import MyReviews from './MyReviews';
 
 
 
@@ -31,6 +32,7 @@ const Main = () => {
                 <Route path='/singup' element={<SignUp />} exact/>
                 <Route path='/:id' element={<RepositorySingle />} exact/>
                 <Route path='/createReview' element={<CreateReview />} exact/>
+                <Route path='/:id/myReviews' element={<MyReviews />} exact />
                 <Route path='*' element={<Navigate to='/' replace />} /> 
             </Routes>
         </View> 

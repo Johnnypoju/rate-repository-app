@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
   
   });
 
-const RepositoryListContainer = ({repositories, navigate, sorting, setSorting}) => {
+const RepositoryListContainer = ({
+  repositories, navigate, sorting, setSorting, onEndReach
+  }) => {
    
     
      
@@ -37,6 +39,8 @@ const RepositoryListContainer = ({repositories, navigate, sorting, setSorting}) 
         style={styles.flexItems}
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.5}
         ListHeaderComponent={(
           <>
           <SearchRepository props={sortingAndSearch}/>

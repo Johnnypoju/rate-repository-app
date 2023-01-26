@@ -9,22 +9,26 @@ const initialState = {
   orderBy: "CREATED_AT",
   orderDirection: "DESC",
   label: "latest",
-  searchKeyword: ""
+  searchKeyword: "",
+  first: 20
 }
 
 const RepositoryList = () => {
 
   const [ sorting, setSorting ] = useState(initialState);
-  
-  const { loading, repositories } = useRepositories(sorting);
-
+  const { loading, repositories, fetchMore } = useRepositories(sorting);
   const navigate = useNavigate(); 
+
   if(loading) {
     return null
   }
 
+  const onEndReach = () => {
+    fetchMore();
+  };
+
   return (
-    <RepositoryListContainer repositories={repositories} navigate={navigate} sorting={sorting} setSorting={setSorting} />
+    <RepositoryListContainer onEndReach={onEndReach} repositories={repositories} navigate={navigate} sorting={sorting} setSorting={setSorting} />
   );
 };
 
