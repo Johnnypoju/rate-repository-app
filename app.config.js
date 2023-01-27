@@ -14,13 +14,24 @@ export default {
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/816e30b6-aeaa-4369-9b1b-dd65c96036ea"
     },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },  
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "expo": {
+      "extra": {
+        "eas": {
+          "projectId": "816e30b6-aeaa-4369-9b1b-dd65c96036ea"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -33,6 +44,6 @@ export default {
     },
     "extra": {
       "env": process.env.ENV,
-      "apolloUri": process.env.APOLLO_URI
+      "apolloUri": process.env.APOLLO_URI,
     }
   }
