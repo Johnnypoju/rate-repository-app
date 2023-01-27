@@ -35,11 +35,11 @@ export const GET_REPOSITORIES = gql`
 `;
 
 export const GET_AUTHENTICATED_USER = gql`
-    query {
+    query getAuthenticatedUser($includeReviews: Boolean = false, $first: Int, $after: String) {
         me {
             id
             username
-            reviews {
+            reviews(first: $first, after: $after) @include(if: $includeReviews){
                 edges {
                     cursor
                     node {
@@ -51,6 +51,7 @@ export const GET_AUTHENTICATED_USER = gql`
                             id
                             username
                         }
+                        repositoryId
                     }
                 }
                 pageInfo {

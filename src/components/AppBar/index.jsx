@@ -6,6 +6,7 @@ import AppBarTap from './AppBarTap';
 import theme from '../../theme';
 import useAuthStorage from '../../hooks/useAuthStorage';
 import useMe from '../../hooks/useMe';
+import { useNavigate } from 'react-router-native';
 
 
 
@@ -21,10 +22,11 @@ const styles = StyleSheet.create({
 
 
 const AppBar = (/*{ loading, data }*/) => {
-    const { me, loading } = useMe();
+    const { me, loading } = useMe(false);
 
     const authStorage = useAuthStorage();
     const apolloClient = useApolloClient();
+    const navigate = useNavigate();
    
     if (loading) {
         return null;
@@ -33,6 +35,7 @@ const AppBar = (/*{ loading, data }*/) => {
     const handleSignOut = async () => {
         await authStorage.removeAccessToken();
         await apolloClient.resetStore();
+        navigate('/')
     };
 
     return (

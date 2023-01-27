@@ -1,13 +1,14 @@
 import { useQuery } from "@apollo/client";
 import { GET_AUTHENTICATED_USER } from "../graphql/queries";
 
-const useMe = () => {
+const useMe = (props) => {
     
     try {
-        const { loading, data, fetchMore, error, variables } = useQuery(GET_AUTHENTICATED_USER, {
+        const { loading, data, fetchMore, error, variables, refetch } = useQuery(GET_AUTHENTICATED_USER, {
             fetchPolicy: "cache-and-network",
             variables: {
-                first: 5
+                first: 5,
+                includeReviews: props
             }
         });
     
@@ -26,7 +27,7 @@ const useMe = () => {
             });
           };
     
-          return { me: data?.me, loading , error, fetchMore: handleFetchMore };
+          return { me: data?.me, loading , error, fetchMore: handleFetchMore, refetch: refetch };
       } catch (error) {
         console.log(error);
       }

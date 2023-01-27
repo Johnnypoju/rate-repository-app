@@ -1,10 +1,16 @@
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View, Alert } from 'react-native';
 import { format } from 'date-fns';
+import { useNavigate } from 'react-router-native';
+
 import theme from '../../theme';
 import Text from '../Text';
+import useReview from '../../hooks/useReview';
 
 
-const ReviewItem = ({ review }) => {
+
+
+const ReviewItem = ({ review, reviewHandling, refetch }) => {
+    const navigate = useNavigate();
 
     const styles = StyleSheet.create({
         container_rows: {
@@ -13,7 +19,7 @@ const ReviewItem = ({ review }) => {
             backgroundColor: theme.colors.white,
             flexGrow: 1,
             flexShrink: 1,
-            padding: 5
+            padding: 5,
         },
         container_columns: {
             display: 'flex',
@@ -22,6 +28,15 @@ const ReviewItem = ({ review }) => {
             flexGrow: 1,
             flexShrink: 1,
             padding: 5
+        },
+        buttonRow: {
+            display: 'flex',
+            flexDirection: 'row',
+            backgroundColor: theme.colors.white,
+            flexGrow: 1,
+            flexShrink: 1,
+            padding: 5,
+            justifyContent: 'center'
         },
         entry: {
             flexGrow: 1,
@@ -53,10 +68,28 @@ const ReviewItem = ({ review }) => {
     const splittedDate = review.createdAt.split('T');
     const separateDate = new Date(splittedDate[0]);
 
-    console.log(splittedDate);
-    console.log(separateDate);
+    console.log(review);
 
     const formattedDate = format(separateDate, 'dd.MM.yyyy');
+    const [deleteReview] = useReview();
+
+    const onPress =() => {
+        Alert.alert('Delete review', 'Are you sure you want to delete this review?', [
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel pressed'),
+                style: 'cancel'
+            },
+            {
+                text: 'Delete',
+                onPress: async () => {
+                    await deleteReview(review.id)
+                    refetch();
+                }
+            }
+        ])
+        
+    };
     
     return (
         <View testID="repositoryItem">
@@ -70,7 +103,12 @@ const ReviewItem = ({ review }) => {
                     <Text testID="reviewText">{review.text} </Text>
                 </View>
             </View>
-                
+            {reviewHandling ? 
+                <View style={styles.buttonRow}>
+                    <Pressable style={{paddingRight: 20}} onPress={() => navigate("/"+ review.repositoryId)}><Text type={'blueButton'}>View Repository</Text></Pressable>
+                    <Pressable><Text type={'redButton'} onPress={onPress}>Delete review</Text></Pressable>
+                </View>
+                     : null}
         </View>
     )
 }

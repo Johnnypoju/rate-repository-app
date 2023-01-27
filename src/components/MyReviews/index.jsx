@@ -5,7 +5,7 @@ import useMe from "../../hooks/useMe";
 import ItemSeparator from "../ItemSeparator";
 
 const MyReviews = () => {
-    const { me, loading, fetchMore } = useMe();
+    const { me, loading, fetchMore, refetch } = useMe(true);
 
     const reviewNodes = me
     ? me.reviews.edges.map(edge => edge.node)
@@ -22,13 +22,10 @@ const MyReviews = () => {
     return (
         <FlatList 
         data={reviewNodes}
-        renderItem={({ item }) => <ReviewItem review={item} />}
+        renderItem={({ item }) => <ReviewItem review={item} reviewHandling={true} refetch={refetch}/>}
         keyExtractor={({ id }) => id}
         onEndReached={onEndReach}
-        /*ListHeaderComponent={() => <>
-            <RepositoryItem props={repository} single={true}/>
-            <ItemSeparator />
-        </>}*/
+        
         ItemSeparatorComponent={ItemSeparator}
         />
     )

@@ -55,6 +55,24 @@ const styles = StyleSheet.create({
         padding: theme.padding.signIn,
         borderRadius: theme.borderRadius.languageBar,
     },
+    blueButton: {
+        alignSelf: 'stretch',
+        textAlign: 'center',
+        backgroundColor: theme.colors.primary,
+        color: theme.colors.white,
+        backgroundRadius: theme.colors.backgroundRadius,
+        padding: theme.padding.blueButton,
+        borderRadius: theme.borderRadius.languageBar,
+    },
+    redButton: {
+        alignSelf: 'stretch',
+        textAlign: 'center',
+        backgroundColor: theme.colors.error,
+        color: theme.colors.white,
+        backgroundRadius: theme.colors.backgroundRadius,
+        padding: theme.padding.redButton,
+        borderRadius: theme.borderRadius.languageBar,
+    },
     stats: {
         textAlign: 'center',
         fontWeight: theme.fontWeights.bold
@@ -80,6 +98,8 @@ const Text = ({ color, fontSize, fontWeight, style, backgroundColor, type, paddi
         type === 'description' && styles.statDescription,
         type === 'button' && styles.button,
         type === 'ratingText' && styles.ratingText,
+        type === 'blueButton' && styles.blueButton,
+        type === 'redButton' && styles.redButton,
         style
     ];
 

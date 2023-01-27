@@ -24,7 +24,7 @@ const RepositorySingle = () => {
     return (
         <FlatList 
         data={reviewNodes}
-        renderItem={({ item }) => <ReviewItem review={item} />}
+        renderItem={({ item }) => <ReviewItem review={item} reviewHandling={false} />}
         keyExtractor={({ id }) => id}
         onEndReached={onEndReach}
         ListHeaderComponent={() => <>

@@ -10,7 +10,6 @@ const RepositoryItem = ({ props, single }) => {
     
     const styles = StyleSheet.create({
         container_rows: {
-            display: 'flex',
             flexDirection: 'row',
             backgroundColor: theme.colors.white,
             flexGrow: 1,
@@ -18,8 +17,6 @@ const RepositoryItem = ({ props, single }) => {
             padding: 5
         },
         container_columns: {
-            display: 'flex',
-            flexDirection: 'column',
             backgroundColor: theme.colors.white,
             flexGrow: 1,
             flexShrink: 1,
@@ -31,7 +28,8 @@ const RepositoryItem = ({ props, single }) => {
             
         },
         paddedLeft: {
-            paddingLeft: 10
+            paddingLeft: 10,
+            flexShrink: 1
         },
         image: {
             height: 50,

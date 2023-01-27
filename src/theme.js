@@ -12,7 +12,7 @@ const theme = {
       blue: '#24292e'
     },
     fontSizes: {
-      body: 14,
+      body: 16,
       subheading: 16,
     },
     fonts: Platform.select({
@@ -39,6 +39,8 @@ const theme = {
         padding: 20,
         languageBar: 3,
         signIn: 10,
+        redButton: 15,
+        blueButton: 15
     },
     paddingLeft: {
         error: 10

@@ -10,7 +10,7 @@ const initialState = {
   orderDirection: "DESC",
   label: "latest",
   searchKeyword: "",
-  first: 20
+  first: 6
 }
 
 const RepositoryList = () => {

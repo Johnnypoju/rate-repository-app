@@ -48,9 +48,9 @@ const RepositoryListContainer = ({
           </>
         )}
         renderItem={({ item }) => (
-          <Pressable onPress={(()=> onPress(item.id))}>
-            <RepositoryItem key={item.key} props={item} single={false}/>
-          </Pressable>
+            <Pressable onPress={(()=> onPress(item.id))}>
+              <RepositoryItem key={item.key} props={item} single={false}/>
+            </Pressable>
         )}
       />
       </>
